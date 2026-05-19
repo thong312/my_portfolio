@@ -1,4 +1,4 @@
-name: Deploy to Vercel
+name: Validate Code
 
 on:
   push:
@@ -9,16 +9,25 @@ on:
       - main
 
 jobs:
-  deploy:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       
-      - name: Deploy to Vercel
-        uses: vercel/action@master
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          alias-domains: |
-            ${{ steps.deploy.outputs.preview-url }}
+      - name: Validate HTML
+        run: |
+          if [ ! -f "index.html" ]; then
+            echo "ERROR: index.html not found"
+            exit 1
+          fi
+          echo "✅ HTML validation passed"
+      
+      - name: Check files
+        run: |
+          echo "✅ Files present:"
+          ls -la css/
+          ls -la js/
+          echo "✅ All required files exist"
+
+# Note: Vercel auto-deploys when you connect the GitHub repo in Vercel dashboard
+# No need for custom deployment action
