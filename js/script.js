@@ -181,11 +181,29 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('section, .project-card, .tool-item, .skill-card').forEach(el => {
+  document.querySelectorAll('section, .project-card, .tool-item, .skill-card, .about-stat').forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
   });
 });
+
+// ==========================================
+// STAGGER ANIMATIONS FOR CARDS
+// ==========================================
+function setupStaggerAnimations() {
+  const projectCards = document.querySelectorAll('.project-card');
+  const skillCards = document.querySelectorAll('.skill-card');
+  
+  projectCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  });
+  
+  skillCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.05}s`;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupStaggerAnimations);
 
 // ==========================================
 // ENHANCED HOVER EFFECTS FOR CARDS
