@@ -4,7 +4,7 @@
   "installCommand": "",
   "framework": "static",
   "outputDirectory": ".",
-  "env": [],
+  "env": {},
   "regions": ["iad1"],
   "functions": {
     "api/**/*.js": {
