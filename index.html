@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ly Minh Thong — AI Product UX Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Thong.LM</a>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Available for opportunities</div>
+  <h1>Building <em>AI-native</em><br>product experiences</h1>
+  <p class="hero-sub">I design and build interfaces that make complex AI outputs feel clear, trustworthy, and easy to act on — using AI tools to move fast and ship well.</p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn-primary">View projects →</a>
+    <a href="mailto:lyminhthong312@gmail.com" class="btn-outline">Get in touch</a>
+  </div>
+</div>
+
+<!-- TOOLS STRIP -->
+<section style="padding-top:0; padding-bottom: 48px;">
+  <div class="tools-strip">
+    <div style="font-size:13px; font-weight:600; color:var(--gray-300); text-transform:uppercase; letter-spacing:0.06em; margin-right:8px;">Tools I use</div>
+    <div class="tool-item"><div class="tool-icon">🤖</div><div class="tool-name">Claude</div></div>
+    <div class="tool-item"><div class="tool-icon">✨</div><div class="tool-name">ChatGPT</div></div>
+    <div class="tool-item"><div class="tool-icon">⚡</div><div class="tool-name">Cursor</div></div>
+    <div class="tool-item"><div class="tool-icon">🎨</div><div class="tool-name">v0</div></div>
+    <div class="tool-item"><div class="tool-icon">⚛️</div><div class="tool-name">ReactJS</div></div>
+    <div class="tool-item"><div class="tool-icon">💨</div><div class="tool-name">Tailwind</div></div>
+    <div class="tool-item"><div class="tool-icon">🐍</div><div class="tool-name">FastAPI</div></div>
+    <div class="tool-item"><div class="tool-icon">🐳</div><div class="tool-name">Docker</div></div>
+    <div class="tool-item"><div class="tool-icon">🗄️</div><div class="tool-name">Neo4j</div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Selected work</div>
+  <div class="projects-grid">
+
+    <!-- PROJECT 1: RAG Chat -->
+    <div class="project-card">
+      <div class="project-screen">
+        <div style="width:100%; display:flex; gap:0; align-items:stretch;">
+          <!-- Sidebar -->
+          <div class="rag-sidebar">
+            <div style="padding:10px 16px 14px; font-size:11px; color:#4040a0; font-weight:600; text-transform:uppercase; letter-spacing:0.06em;">Conversations</div>
+            <div class="rag-sidebar-item active">📄 Q4 Revenue Analysis</div>
+            <div class="rag-sidebar-item">📋 HR Policy FAQ</div>
+            <div class="rag-sidebar-item">📊 Product Roadmap</div>
+            <div class="rag-sidebar-item">💬 General Chat</div>
+            <div style="margin-top:16px; padding:8px 16px;">
+              <div style="background:#2a2a42; border-radius:6px; padding:8px 12px; font-size:11px; color:#6868a0; display:flex; align-items:center; gap:6px; cursor:pointer;">
+                <span>+</span> New conversation
+              </div>
+            </div>
+          </div>
+          <!-- Main -->
+          <div class="rag-main">
+            <div class="rag-topbar">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div style="font-size:13px; font-weight:500; color:#c0c0e0;">Q4 Revenue Analysis</div>
+                <span class="rag-mode-badge mode-rag">● RAG Search</span>
+              </div>
+              <div style="font-size:11px; color:#5555cc;">3 sources loaded</div>
+            </div>
+            <div class="rag-messages">
+              <div class="msg-user">What were the main revenue drivers in Q4?</div>
+              <div class="msg-ai">
+                <div class="msg-ai-header">
+                  <span>● AI Answer</span>
+                  <span style="font-weight:400; color:#8080c0;">from 3 documents</span>
+                </div>
+                Based on the uploaded Q4 report, the main revenue drivers were: enterprise subscription renewals (+32%), new SMB acquisition via the referral program (+18%), and the Asia-Pacific expansion contributing $2.4M in new ARR.
+                <div>
+                  <span class="source-chip">📄 Q4_Report_2025.pdf</span>
+                  <span class="source-chip">📊 ARR_Breakdown.xlsx</span>
+                </div>
+              </div>
+              <div class="msg-user">How does this compare to Q3?</div>
+            </div>
+            <div class="rag-input-row">
+              <div class="rag-input">Ask anything about your documents...</div>
+              <div class="rag-send">→</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-tags">
+          <span class="tag">AI Product</span>
+          <span class="tag">RAG System</span>
+          <span class="tag">TailwindCSS</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Neo4j</span>
+        </div>
+        <h3>Advanced Graph RAG & AI Agent System</h3>
+        <p>A full-stack AI product built independently — from graph-structured retrieval backend to user-facing chat interface. The core UX challenge: making LLM outputs feel sourced, trustworthy, and easy to act on.</p>
+        <div class="project-highlights">
+          <div class="highlight-item">Designed AI query routing UX: visual mode-switching between General Chat and RAG Search to reduce confusion</div>
+          <div class="highlight-item">Built source attribution UI — every AI answer links back to specific documents, building user trust</div>
+          <div class="highlight-item">Used Claude, ChatGPT, and v0 to prototype and iterate on UI components rapidly throughout the build</div>
+          <div class="highlight-item">Hybrid search pipeline (vector + BM25 + reranking) surfaced visually through clean, scannable results</div>
+        </div>
+        <a href="https://github.com/thong312/chatbot_mini_v2" class="project-link" target="_blank">View on GitHub ↗</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: Enterprise Platform -->
+    <div class="project-card">
+      <div class="project-screen light-bg">
+        <div class="ent-mockup">
+          <div class="ent-nav">
+            <div class="ent-nav-logo">IntraCore</div>
+            <div class="ent-nav-item active">Dashboard</div>
+            <div class="ent-nav-item">Documents</div>
+            <div class="ent-nav-item">Team</div>
+            <div class="ent-nav-item">Settings</div>
+          </div>
+          <div class="ent-body">
+            <div class="ent-sidebar">
+              <div class="ent-sidebar-item active">📁 All Documents</div>
+              <div class="ent-sidebar-item">📋 My Files</div>
+              <div class="ent-sidebar-item">🔒 Restricted</div>
+              <div class="ent-sidebar-item">📤 Shared</div>
+              <div class="ent-sidebar-item">🗑️ Archive</div>
+            </div>
+            <div class="ent-content">
+              <div class="ent-stats">
+                <div class="stat-card">
+                  <div class="stat-label">Total Documents</div>
+                  <div class="stat-val">1,284</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Shared This Month</div>
+                  <div class="stat-val">47</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Active Users</div>
+                  <div class="stat-val">23</div>
+                </div>
+              </div>
+              <div class="ent-header">
+                <div class="ent-title">Recent Documents</div>
+                <button class="ent-btn">+ Upload</button>
+              </div>
+              <div class="doc-list">
+                <div class="doc-row">
+                  <div class="doc-icon">📄</div>
+                  <div class="doc-name">Q4 Financial Report 2025.pdf</div>
+                  <div class="doc-meta">2 hours ago</div>
+                  <span class="doc-badge badge-green">Approved</span>
+                </div>
+                <div class="doc-row">
+                  <div class="doc-icon">📊</div>
+                  <div class="doc-name">Product Roadmap v3.xlsx</div>
+                  <div class="doc-meta">Yesterday</div>
+                  <span class="doc-badge badge-amber">In Review</span>
+                </div>
+                <div class="doc-row">
+                  <div class="doc-icon">📋</div>
+                  <div class="doc-name">Employee Handbook 2026.docx</div>
+                  <div class="doc-meta">Jan 15</div>
+                  <span class="doc-badge badge-green">Approved</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-tags">
+          <span class="tag">Enterprise UX</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Microservices</span>
+        </div>
+        <h3>Internal Enterprise Management Platform</h3>
+        <p>A microservices-based internal platform for document management and employee access. Focused on making complex access-control and file-management flows feel simple and trustworthy for non-technical users.</p>
+        <div class="project-highlights">
+          <div class="highlight-item">Designed onboarding and authentication flows that reduced user confusion around permission levels</div>
+          <div class="highlight-item">Built dashboard UI with clear visual hierarchy — status badges, stat cards, and document metadata at a glance</div>
+          <div class="highlight-item">Worked across Next.js frontend and backend infrastructure, translating requirements into buildable specs</div>
+        </div>
+        <a href="https://github.com/thong312" class="project-link" target="_blank">View on GitHub ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I bring</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <h4>AI-Assisted Prototyping</h4>
+      <p>Use Claude, ChatGPT, Cursor, and v0 to turn rough ideas into working interfaces fast — without waiting for a full engineering cycle.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🧭</div>
+      <h4>UX for AI Products</h4>
+      <p>Specialized in making LLM outputs scannable, trustworthy, and actionable — reducing confusion in AI-driven user flows.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚛️</div>
+      <h4>Frontend Development</h4>
+      <p>ReactJS, TailwindCSS, HTML/CSS, JavaScript — builds responsive, component-based UIs that engineers can ship directly.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔧</div>
+      <h4>Technical Depth</h4>
+      <p>Understands Docker, FastAPI, MongoDB, and microservices — enabling productive, realistic collaboration with engineering teams.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔄</div>
+      <h4>Fast Iteration</h4>
+      <p>Self-taught Graph RAG, Neo4j, and agentic workflows from scratch — comfortable learning and shipping new tools quickly.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">👁️</div>
+      <h4>Product Taste</h4>
+      <p>Spots when a flow feels confusing, a screen feels cluttered, or a CTA lacks clarity — and knows how to fix it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About me</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2>Builder at the edge of design & engineering</h2>
+      <p>I'm an IT graduate currently pursuing a Master's in Software Engineering at FPT University. I build at the intersection of product thinking, UX, and engineering — comfortable working across the full stack but always focused on how users experience the final interface.</p>
+      <p>After interning at LARION (a YC-grade IT outsourcing firm), I spent the last year building my own AI product end-to-end — from data pipelines to user-facing UI — using modern AI tools to move fast without sacrificing quality.</p>
+      <p>I'm excited about AI-native products where the UX challenge is making complex, probabilistic outputs feel simple, clear, and trustworthy.</p>
+    </div>
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-num">2+</div>
+        <div class="about-stat-label">Years building frontend (HTML, CSS, JavaScript, ReactJS)</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">1</div>
+        <div class="about-stat-label">Full AI product shipped end-to-end as independent builder</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">5+</div>
+        <div class="about-stat-label">AI tools used actively: Claude, ChatGPT, Cursor, v0, Groq</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <h2>Let's build something together</h2>
+    <p>Open to internship and fresher roles in AI product design, UX building, and frontend collaboration.</p>
+    <div class="contact-links">
+      <a href="mailto:lyminhthong312@gmail.com" class="contact-link contact-link-white">✉️ lyminhthong312@gmail.com</a>
+      <a href="https://linkedin.com/in/thong-lyminh-2239562b7/" class="contact-link contact-link-outline" target="_blank">LinkedIn ↗</a>
+      <a href="https://github.com/thong312" class="contact-link contact-link-outline" target="_blank">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Ly Minh Thong · AI Product UX Builder · Ho Chi Minh City, Vietnam
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
