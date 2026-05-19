@@ -1,4 +1,101 @@
 // ==========================================
+// SMOOTH SCROLL PROGRESS INDICATOR
+// ==========================================
+function setupScrollIndicator() {
+  const indicator = document.createElement('div');
+  indicator.className = 'scroll-progress-bar';
+  document.body.appendChild(indicator);
+  
+  window.addEventListener('scroll', () => {
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (window.scrollY / scrollHeight) * 100;
+    indicator.style.width = scrolled + '%';
+  });
+}
+
+// ==========================================
+// PARALLAX HERO EFFECT
+// ==========================================
+function setupParallax() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    hero.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+  });
+}
+
+// ==========================================
+// TYPING ANIMATION FOR HERO TITLE
+// ==========================================
+function setupTypingAnimation() {
+  const heroTitle = document.querySelector('.hero h1');
+  if (!heroTitle) return;
+  
+  const originalText = heroTitle.innerHTML;
+  heroTitle.innerHTML = '';
+  
+  const fullText = 'Building <em>AI-native</em><br>product experiences';
+  let index = 0;
+  const speed = 50;
+  
+  function type() {
+    if (index < fullText.length) {
+      heroTitle.innerHTML = fullText.substring(0, index + 1);
+      index++;
+      setTimeout(type, speed);
+    }
+  }
+  
+  // Start typing after page load
+  window.addEventListener('load', () => {
+    setTimeout(type, 300);
+  });
+}
+
+// ==========================================
+// COUNTER ANIMATION FOR STATS
+// ==========================================
+function animateCounter(element, target, duration = 2000) {
+  const start = 0;
+  const startTime = Date.now();
+  
+  function update() {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const current = Math.floor(start + (target - start) * progress);
+    element.textContent = current + '+';
+    
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  
+  requestAnimationFrame(update);
+}
+
+function setupCounterAnimation() {
+  const observerOptions = {
+    threshold: 0.5
+  };
+  
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+        const num = parseInt(entry.target.textContent);
+        animateCounter(entry.target, num);
+        entry.target.classList.add('counted');
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.about-stat-num').forEach(el => {
+    counterObserver.observe(el);
+  });
+}
+
+// ==========================================
 // SMOOTH SCROLLING & ACTIVE NAV HIGHLIGHT
 // ==========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -44,7 +141,6 @@ function setupMobileMenu() {
   const nav = document.querySelector('nav');
   const navLinks = document.querySelector('.nav-links');
   
-  // Tạo hamburger button
   if (!document.querySelector('.hamburger')) {
     const hamburger = document.createElement('button');
     hamburger.className = 'hamburger';
@@ -57,7 +153,6 @@ function setupMobileMenu() {
       hamburger.classList.toggle('active');
     });
     
-    // Đóng menu khi click vào link
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('mobile-open');
@@ -86,12 +181,33 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Add animation classes to elements
-  document.querySelectorAll('section, .project-card, .tool-item').forEach(el => {
+  document.querySelectorAll('section, .project-card, .tool-item, .skill-card').forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
   });
 });
+
+// ==========================================
+// ENHANCED HOVER EFFECTS FOR CARDS
+// ==========================================
+function setupCardHovers() {
+  const projectCards = document.querySelectorAll('.project-card');
+  const skillCards = document.querySelectorAll('.skill-card');
+  
+  [projectCards, skillCards].forEach(cards => {
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-8px) scale(1.01)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupCardHovers);
 
 // ==========================================
 // FORM VALIDATION (Email)
@@ -138,3 +254,28 @@ function setupScrollToTop() {
 }
 
 document.addEventListener('DOMContentLoaded', setupScrollToTop);
+
+// ==========================================
+// MOUSE TRACKING FOR HERO
+// ==========================================
+function setupMouseTracking() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    hero.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+  });
+}
+
+// ==========================================
+// INITIALIZE ALL FEATURES ON PAGE LOAD
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+  setupScrollIndicator();
+  setupParallax();
+  setupTypingAnimation();
+  setupCounterAnimation();
+  setupMouseTracking();
+});
