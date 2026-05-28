@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ly Minh Thong — AI Product UX Builder & Full-Stack Developer. Building AI-native product experiences with modern tools and clean design." />
   <title>Ly Minh Thong — AI Product UX Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
@@ -39,11 +40,9 @@
   </div>
 
   <!-- TOOLS STRIP -->
-  <section style="padding-top:0; padding-bottom: 48px;">
+  <section class="tools-section">
     <div class="tools-strip">
-      <div
-        style="font-size:13px; font-weight:600; color:var(--gray-300); text-transform:uppercase; letter-spacing:0.06em; margin-right:8px;">
-        Tools I use</div>
+      <div class="tools-label">Tools I use</div>
       <div class="tool-item">
         <div class="tool-icon">🤖</div>
         <div class="tool-name">Claude</div>
@@ -278,99 +277,84 @@
   </section>
 
   <!-- FEATURED PROJECTS - ADDITIONAL SHOWCASE -->
-  <section style="background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 100%); padding: 80px 20px;">
+  <section class="featured-section">
     <div class="container">
-      <div class="section-label" style="color: #a0a0ff;">More recent builds</div>
-      <div class="projects-grid" style="grid-template-columns: 1fr;">
+      <div class="section-label">More recent builds</div>
+      <div class="projects-grid">
 
         <!-- Mini Project 1: Graph RAG Research -->
-        <div class="project-card mini-project-1"
-          style="grid-template-columns: 1fr; border-left: 3px solid #5555cc; background: linear-gradient(135deg, rgba(85,85,204,0.1) 0%, rgba(85,85,204,0.05) 100%);">
-          <div style="padding: 24px;">
+        <div class="project-card mini-project theme-blue">
+          <div class="mini-project-content">
             <div class="project-tags">
-              <span class="tag" style="background: rgba(85,85,204,0.2); color: #a0a0ff; border-color: #5555cc;">AI
-                Research</span>
-              <span class="tag"
-                style="background: rgba(85,85,204,0.2); color: #a0a0ff; border-color: #5555cc;">Neo4j</span>
-              <span class="tag"
-                style="background: rgba(85,85,204,0.2); color: #a0a0ff; border-color: #5555cc;">Python</span>
-              <span class="tag"
-                style="background: rgba(85,85,204,0.2); color: #a0a0ff; border-color: #5555cc;">LLM</span>
+              <span class="tag color-blue">AI Research</span>
+              <span class="tag color-blue">Neo4j</span>
+              <span class="tag color-blue">Python</span>
+              <span class="tag color-blue">LLM</span>
             </div>
-            <h3 style="margin-top: 16px; color: #fff; font-size: 20px;">Graph RAG Hierarchical Chunking Research</h3>
-            <p style="color: #d0d0f0; line-height: 1.7;">Solved the "context fragmentation" problem in traditional RAG
+            <h3>Graph RAG Hierarchical Chunking Research</h3>
+            <p class="mini-project-desc">Solved the "context fragmentation" problem in traditional RAG
               by implementing parent-child document relationships in Neo4j. This enables the system to retrieve broad
               contextual information from specific vector matches.</p>
             <div class="project-highlights">
-              <div class="highlight-item" style="color: #c0c0e0;">Built hybrid search combining BM25 keyword search with
+              <div class="highlight-item">Built hybrid search combining BM25 keyword search with
                 vector embeddings (BGE-M3) for maximum retrieval accuracy</div>
-              <div class="highlight-item" style="color: #c0c0e0;">Implemented Cross-Encoder reranking pipeline to filter
+              <div class="highlight-item">Implemented Cross-Encoder reranking pipeline to filter
                 top-k results by semantic relevance</div>
-              <div class="highlight-item" style="color: #c0c0e0;">Reduced retrieval hallucinations by 60% through
+              <div class="highlight-item">Reduced retrieval hallucinations by 60% through
                 structured graph relationships vs. flat vector search</div>
-              <div class="highlight-item" style="color: #c0c0e0;">Tested with 500+ enterprise documents, validating
+              <div class="highlight-item">Tested with 500+ enterprise documents, validating
                 production-ready performance</div>
             </div>
           </div>
         </div>
 
         <!-- Mini Project 2: Infrastructure Automation -->
-        <div class="project-card mini-project-2"
-          style="grid-template-columns: 1fr; border-left: 3px solid #00d4aa; background: linear-gradient(135deg, rgba(0,212,170,0.1) 0%, rgba(0,212,170,0.05) 100%);">
-          <div style="padding: 24px;">
+        <div class="project-card mini-project theme-teal">
+          <div class="mini-project-content">
             <div class="project-tags">
-              <span class="tag"
-                style="background: rgba(0,212,170,0.2); color: #4ade80; border-color: #00d4aa;">DevOps</span>
-              <span class="tag" style="background: rgba(0,212,170,0.2); color: #4ade80; border-color: #00d4aa;">Docker
-                Compose</span>
-              <span class="tag"
-                style="background: rgba(0,212,170,0.2); color: #4ade80; border-color: #00d4aa;">Bash</span>
-              <span class="tag"
-                style="background: rgba(0,212,170,0.2); color: #4ade80; border-color: #00d4aa;">MinIO</span>
+              <span class="tag color-teal">DevOps</span>
+              <span class="tag color-teal">Docker Compose</span>
+              <span class="tag color-teal">Bash</span>
+              <span class="tag color-teal">MinIO</span>
             </div>
-            <h3 style="margin-top: 16px; color: #fff; font-size: 20px;">Zero-Downtime Microservices Pipeline</h3>
-            <p style="color: #d0d0f0; line-height: 1.7;">Designed and shipped an automated data management pipeline for
+            <h3>Zero-Downtime Microservices Pipeline</h3>
+            <p class="mini-project-desc">Designed and shipped an automated data management pipeline for
               the enterprise platform, ensuring files uploaded to MinIO are processed and synchronized across services
               without requiring system downtime.</p>
             <div class="project-highlights">
-              <div class="highlight-item" style="color: #c0c0e0;">Built robust Bash scripts to automate environment
+              <div class="highlight-item">Built robust Bash scripts to automate environment
                 setup, dependency management, and container deployments</div>
-              <div class="highlight-item" style="color: #c0c0e0;">Orchestrated multi-service coordination (Auth,
+              <div class="highlight-item">Orchestrated multi-service coordination (Auth,
                 Storage, Processing) using Docker Compose networks</div>
-              <div class="highlight-item" style="color: #c0c0e0;">Implemented health checks and auto-recovery for
+              <div class="highlight-item">Implemented health checks and auto-recovery for
                 container failures</div>
-              <div class="highlight-item" style="color: #c0c0e0;">Reduced deployment time from 2 hours to 15 minutes
+              <div class="highlight-item">Reduced deployment time from 2 hours to 15 minutes
                 through scripted automation</div>
             </div>
           </div>
         </div>
 
         <!-- Mini Project 3: Entity Extraction System -->
-        <div class="project-card mini-project-3"
-          style="grid-template-columns: 1fr; border-left: 3px solid #ff6b6b; background: linear-gradient(135deg, rgba(255,107,107,0.1) 0%, rgba(255,107,107,0.05) 100%);">
-          <div style="padding: 24px;">
+        <div class="project-card mini-project theme-red">
+          <div class="mini-project-content">
             <div class="project-tags">
-              <span class="tag"
-                style="background: rgba(255,107,107,0.2); color: #ff9b9b; border-color: #ff6b6b;">NLP</span>
-              <span class="tag"
-                style="background: rgba(255,107,107,0.2); color: #ff9b9b; border-color: #ff6b6b;">FastAPI</span>
-              <span class="tag"
-                style="background: rgba(255,107,107,0.2); color: #ff9b9b; border-color: #ff6b6b;">Python</span>
-              <span class="tag"
-                style="background: rgba(255,107,107,0.2); color: #ff9b9b; border-color: #ff6b6b;">Production</span>
+              <span class="tag color-red">NLP</span>
+              <span class="tag color-red">FastAPI</span>
+              <span class="tag color-red">Python</span>
+              <span class="tag color-red">Production</span>
             </div>
-            <h3 style="margin-top: 16px; color: #fff; font-size: 20px;">Entity Extraction & Classification System</h3>
-            <p style="color: #d0d0f0; line-height: 1.7;">Built a production-grade NLP service using FastAPI to extract
+            <h3>Entity Extraction &amp; Classification System</h3>
+            <p class="mini-project-desc">Built a production-grade NLP service using FastAPI to extract
               and classify entities from unstructured text documents. Integrated into the RAG pipeline for improved
               document understanding.</p>
             <div class="project-highlights">
-              <div class="highlight-item" style="color: #c0c0e0;">Processed 10,000+ documents, achieving 92% accuracy in
+              <div class="highlight-item">Processed 10,000+ documents, achieving 92% accuracy in
                 entity classification</div>
-              <div class="highlight-item" style="color: #c0c0e0;">Optimized API response time to &lt;200ms using async
+              <div class="highlight-item">Optimized API response time to &lt;200ms using async
                 batch processing</div>
-              <div class="highlight-item" style="color: #c0c0e0;">Integrated with MongoDB for caching extracted
+              <div class="highlight-item">Integrated with MongoDB for caching extracted
                 entities, reducing redundant processing</div>
-              <div class="highlight-item" style="color: #c0c0e0;">Built fallback mechanisms for edge cases and malformed
+              <div class="highlight-item">Built fallback mechanisms for edge cases and malformed
                 inputs</div>
             </div>
           </div>
@@ -381,73 +365,58 @@
   </section>
 
   <!-- EXPERIENCE TIMELINE -->
-  <section id="experience" style="padding: 80px 20px; background: #ffffff;">
+  <section id="experience" class="experience-section">
     <div class="container">
-      <div class="section-label" style="color: #1a1a3a;">Experience & Timeline</div>
-      <div style="max-width: 800px; margin: 0 auto;">
+      <div class="section-label">Experience &amp; Timeline</div>
+      <div class="timeline-wrapper">
 
-        <div
-          style="display: flex; gap: 24px; margin-bottom: 48px; padding: 24px; border-radius: 12px; background: #f8f8ff; border-left: 4px solid #ff6b6b;">
-          <div style="flex-shrink: 0;">
-            <div
-              style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b6b, #ff8c8c); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px;">
-              🎓</div>
+        <div class="timeline-card accent-red">
+          <div class="timeline-icon-wrap">
+            <div class="timeline-icon">🎓</div>
           </div>
           <div>
-            <div style="font-weight: 600; color: #1a1a3a; font-size: 18px;">Bachelor's in Information Technology</div>
-            <div style="color: #ff6b6b; font-weight: 500; margin-top: 4px;">FPT University · Sep 2021 - May 2025</div>
-            <div style="color: #666; margin-top: 12px; line-height: 1.6;">GPA: 3.2/4.0. Core coursework: System Design,
+            <div class="timeline-title">Bachelor's in Information Technology</div>
+            <div class="timeline-date">FPT University · Sep 2021 - May 2025</div>
+            <div class="timeline-desc">GPA: 3.2/4.0. Core coursework: System Design,
               Database Architecture, Software Engineering Principles, Web Development. Completed capstone projects in
               containerization and distributed systems.</div>
           </div>
         </div>
 
-        <div
-          style="display: flex; gap: 24px; margin-bottom: 48px; padding: 24px; border-radius: 12px; background: #f8f8ff; border-left: 4px solid #5555cc;">
-          <div style="flex-shrink: 0;">
-            <div
-              style="width: 60px; height: 60px; background: linear-gradient(135deg, #5555cc, #7777ff); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px;">
-              🎓</div>
+        <div class="timeline-card accent-blue">
+          <div class="timeline-icon-wrap">
+            <div class="timeline-icon">🎓</div>
           </div>
           <div>
-            <div style="font-weight: 600; color: #1a1a3a; font-size: 18px;">Master's in Software Engineering</div>
-            <div style="color: #5555cc; font-weight: 500; margin-top: 4px;">FPT University · Sep 2025 - Now</div>
-            <div style="color: #666; margin-top: 12px; line-height: 1.6;">Focusing on advanced system architecture,
+            <div class="timeline-title">Master's in Software Engineering</div>
+            <div class="timeline-date">FPT University · Sep 2025 - Now</div>
+            <div class="timeline-desc">Focusing on advanced system architecture,
               distributed systems, and enterprise-grade infrastructure design. Current coursework in scalable backend
               design and cloud systems.</div>
           </div>
         </div>
 
-
-
-        <div
-          style="display: flex; gap: 24px; margin-bottom: 48px; padding: 24px; border-radius: 12px; background: #f8f8ff; border-left: 4px solid #00d4aa;">
-          <div style="flex-shrink: 0;">
-            <div
-              style="width: 60px; height: 60px; background: linear-gradient(135deg, #00d4aa, #00f5d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px;">
-              💼</div>
+        <div class="timeline-card accent-teal">
+          <div class="timeline-icon-wrap">
+            <div class="timeline-icon">💼</div>
           </div>
           <div>
-            <div style="font-weight: 600; color: #1a1a3a; font-size: 18px;">Developer Intern</div>
-            <div style="color: #00d4aa; font-weight: 500; margin-top: 4px;">LARION · Aug 2025 - Jan 2026 (6 months)
-            </div>
-            <div style="color: #666; margin-top: 12px; line-height: 1.6;">Designed and built scalable microservices
+            <div class="timeline-title">Developer Intern</div>
+            <div class="timeline-date">LARION · Aug 2025 - Jan 2026 (6 months)</div>
+            <div class="timeline-desc">Designed and built scalable microservices
               architecture for enterprise internal platform. Managed Docker containerization, MinIO storage integration,
               and backend infrastructure. Collaborated with teams on system reliability and security protocols.</div>
           </div>
         </div>
 
-        <div
-          style="display: flex; gap: 24px; padding: 24px; border-radius: 12px; background: #f8f8ff; border-left: 4px solid #ffd700;">
-          <div style="flex-shrink: 0;">
-            <div
-              style="width: 60px; height: 60px; background: linear-gradient(135deg, #ffd700, #ffed4e); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px;">
-              🚀</div>
+        <div class="timeline-card accent-gold">
+          <div class="timeline-icon-wrap">
+            <div class="timeline-icon">🚀</div>
           </div>
           <div>
-            <div style="font-weight: 600; color: #1a1a3a; font-size: 18px;">Independent AI Product Development</div>
-            <div style="color: #ffd700; font-weight: 500; margin-top: 4px;">Self-Directed · Dec 2025 - Now</div>
-            <div style="color: #666; margin-top: 12px; line-height: 1.6;">Building Advanced Graph RAG system end-to-end:
+            <div class="timeline-title">Independent AI Product Development</div>
+            <div class="timeline-date">Self-Directed · Dec 2025 - Now</div>
+            <div class="timeline-desc">Building Advanced Graph RAG system end-to-end:
               from AI agent routing, graph database design, to full-stack UI development. Shipping features weekly using
               modern AI tools and engineering best practices.</div>
           </div>
@@ -458,92 +427,86 @@
   </section>
 
   <!-- TECHNICAL EXPERTISE BREAKDOWN -->
-  <section id="technical-depth" style="padding: 80px 20px;">
+  <section id="technical-depth">
     <div class="container">
       <div class="section-label">Technical Depth</div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+      <div class="tech-grid">
 
-        <div
-          style="background: linear-gradient(135deg, rgba(85,85,204,0.1) 0%, rgba(85,85,204,0.05) 100%); padding: 32px; border-radius: 12px; border: 1px solid rgba(85,85,204,0.2); animation: scaleInUp 0.6s ease-out;">
-          <div style="font-size: 32px; margin-bottom: 12px;">🔤</div>
-          <h4 style="color: #e8e8ff; margin-bottom: 16px; font-weight: 600;">Frontend Architecture</h4>
-          <div style="font-size: 13px; color: #d0d0f0; line-height: 1.8;">
-            <strong style="color: #f0f0ff;">React Component Systems:</strong><br>
+        <div class="tech-card theme-blue">
+          <div class="tech-card-icon">🔤</div>
+          <h4 class="tech-card-title">Frontend Architecture</h4>
+          <div class="tech-card-body">
+            <strong>React Component Systems:</strong><br>
             Built scalable component hierarchies for RAG interface, dashboard UX, and enterprise platforms. Mastered
             state management patterns and performance optimization.
             <br><br>
-            <strong style="color: #f0f0ff;">Modern CSS & Styling:</strong><br>
+            <strong>Modern CSS &amp; Styling:</strong><br>
             TailwindCSS for rapid, maintainable design systems. Custom CSS animations for smooth, delightful user
             interactions.
           </div>
         </div>
 
-        <div
-          style="background: linear-gradient(135deg, rgba(0,212,170,0.1) 0%, rgba(0,212,170,0.05) 100%); padding: 32px; border-radius: 12px; border: 1px solid rgba(0,212,170,0.2); animation: scaleInUp 0.6s ease-out; animation-delay: 0.1s; animation-fill-mode: both;">
-          <div style="font-size: 32px; margin-bottom: 12px;">⚙️</div>
-          <h4 style="color: #e8e8ff; margin-bottom: 16px; font-weight: 600;">Backend & APIs</h4>
-          <div style="font-size: 13px; color: #d0d0f0; line-height: 1.8;">
-            <strong style="color: #f0f0ff;">FastAPI Production Services:</strong><br>
+        <div class="tech-card theme-teal">
+          <div class="tech-card-icon">⚙️</div>
+          <h4 class="tech-card-title">Backend &amp; APIs</h4>
+          <div class="tech-card-body">
+            <strong>FastAPI Production Services:</strong><br>
             Built async APIs with pydantic validation, error handling, and structured logging. Deployed on containerized
             infrastructure.
             <br><br>
-            <strong style="color: #f0f0ff;">Microservices Architecture:</strong><br>
+            <strong>Microservices Architecture:</strong><br>
             Designed multi-service systems (Auth, Storage, Processing) communicating over secure networks with proper
             isolation.
           </div>
         </div>
 
-        <div
-          style="background: linear-gradient(135deg, rgba(255,107,107,0.1) 0%, rgba(255,107,107,0.05) 100%); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,107,107,0.2); animation: scaleInUp 0.6s ease-out; animation-delay: 0.2s; animation-fill-mode: both;">
-          <div style="font-size: 32px; margin-bottom: 12px;">💾</div>
-          <h4 style="color: #e8e8ff; margin-bottom: 16px; font-weight: 600;">Data & Storage</h4>
-          <div style="font-size: 13px; color: #d0d0f0; line-height: 1.8;">
-            <strong style="color: #f0f0ff;">Graph Databases (Neo4j):</strong><br>
+        <div class="tech-card theme-red">
+          <div class="tech-card-icon">💾</div>
+          <h4 class="tech-card-title">Data &amp; Storage</h4>
+          <div class="tech-card-body">
+            <strong>Graph Databases (Neo4j):</strong><br>
             Hierarchical document relationships, complex query optimization, and graph traversal for RAG retrieval.
             <br><br>
-            <strong style="color: #f0f0ff;">Document Storage (MinIO):</strong><br>
+            <strong>Document Storage (MinIO):</strong><br>
             Enterprise object storage setup, versioning, access control, and data pipeline automation.
           </div>
         </div>
 
-        <div
-          style="background: linear-gradient(135deg, rgba(120,81,169,0.1) 0%, rgba(120,81,169,0.05) 100%); padding: 32px; border-radius: 12px; border: 1px solid rgba(120,81,169,0.2); animation: scaleInUp 0.6s ease-out; animation-delay: 0.3s; animation-fill-mode: both;">
-          <div style="font-size: 32px; margin-bottom: 12px;">🐳</div>
-          <h4 style="color: #e8e8ff; margin-bottom: 16px; font-weight: 600;">Infrastructure & DevOps</h4>
-          <div style="font-size: 13px; color: #d0d0f0; line-height: 1.8;">
-            <strong style="color: #f0f0ff;">Docker Containerization:</strong><br>
+        <div class="tech-card theme-purple">
+          <div class="tech-card-icon">🐳</div>
+          <h4 class="tech-card-title">Infrastructure &amp; DevOps</h4>
+          <div class="tech-card-body">
+            <strong>Docker Containerization:</strong><br>
             Multi-stage builds, image optimization, volume management, and Docker Compose orchestration for
             multi-service environments.
             <br><br>
-            <strong style="color: #f0f0ff;">System Administration:</strong><br>
+            <strong>System Administration:</strong><br>
             Linux/Windows server management, Bash scripting for automation, and production deployment pipelines.
           </div>
         </div>
 
-        <div
-          style="background: linear-gradient(135deg, rgba(102,51,153,0.1) 0%, rgba(102,51,153,0.05) 100%); padding: 32px; border-radius: 12px; border: 1px solid rgba(102,51,153,0.2); animation: scaleInUp 0.6s ease-out; animation-delay: 0.4s; animation-fill-mode: both;">
-          <div style="font-size: 32px; margin-bottom: 12px;">🤖</div>
-          <h4 style="color: #e8e8ff; margin-bottom: 16px; font-weight: 600;">AI & LLM Integration</h4>
-          <div style="font-size: 13px; color: #d0d0f0; line-height: 1.8;">
-            <strong style="color: #f0f0ff;">Agentic Workflows:</strong><br>
+        <div class="tech-card theme-violet">
+          <div class="tech-card-icon">🤖</div>
+          <h4 class="tech-card-title">AI &amp; LLM Integration</h4>
+          <div class="tech-card-body">
+            <strong>Agentic Workflows:</strong><br>
             Built intelligent routers that autonomously classify user queries and switch between different operational
             modes.
             <br><br>
-            <strong style="color: #f0f0ff;">Embedding & Retrieval:</strong><br>
+            <strong>Embedding &amp; Retrieval:</strong><br>
             BGE-M3 embeddings, vector search optimization, and hybrid search combining keyword + semantic matching.
           </div>
         </div>
 
-        <div
-          style="background: linear-gradient(135deg, rgba(255,193,7,0.1) 0%, rgba(255,193,7,0.05) 100%); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,193,7,0.2); animation: scaleInUp 0.6s ease-out; animation-delay: 0.5s; animation-fill-mode: both;">
-          <div style="font-size: 32px; margin-bottom: 12px;">🚀</div>
-          <h4 style="color: #e8e8ff; margin-bottom: 16px; font-weight: 600;">Rapid Development</h4>
-          <div style="font-size: 13px; color: #d0d0f0; line-height: 1.8;">
-            <strong style="color: #f0f0ff;">AI-Powered Tooling:</strong><br>
+        <div class="tech-card theme-yellow">
+          <div class="tech-card-icon">🚀</div>
+          <h4 class="tech-card-title">Rapid Development</h4>
+          <div class="tech-card-body">
+            <strong>AI-Powered Tooling:</strong><br>
             Proficient with Claude, ChatGPT, Cursor, and v0 to accelerate development cycles without sacrificing code
             quality.
             <br><br>
-            <strong style="color: #f0f0ff;">Self-Learning:</strong><br>
+            <strong>Self-Learning:</strong><br>
             Rapid skill acquisition in emerging tech (Graph RAG, Neo4j, advanced LLM patterns) shipped to production.
           </div>
         </div>
@@ -553,56 +516,50 @@
   </section>
 
   <!-- KEY ACHIEVEMENTS & METRICS -->
-  <section id="achievements" style="padding: 80px 20px; background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 100%);">
+  <section id="achievements" class="achievements-section">
     <div class="container">
-      <div class="section-label" style="color: #a0a0ff;">Key Achievements</div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+      <div class="section-label">Key Achievements</div>
+      <div class="achievements-grid">
 
-        <div
-          style="background: rgba(85,85,204,0.15); padding: 32px; border-radius: 12px; border: 1px solid rgba(85,85,204,0.4); text-align: center; animation: scaleInUp 0.6s ease-out;">
-          <div style="font-size: 48px; font-weight: 700; color: #7b7bff; margin-bottom: 12px;">60%</div>
-          <div style="color: #f0f0ff; font-weight: 600; margin-bottom: 8px;">Reduced Hallucinations</div>
-          <div style="color: #d0d0f0; font-size: 13px;">Implemented hierarchical graph-based RAG reducing LLM
+        <div class="achievement-card theme-blue">
+          <div class="achievement-number color-blue">60%</div>
+          <div class="achievement-title">Reduced Hallucinations</div>
+          <div class="achievement-desc">Implemented hierarchical graph-based RAG reducing LLM
             hallucinations through structured context retrieval</div>
         </div>
 
-        <div
-          style="background: rgba(0,212,170,0.15); padding: 32px; border-radius: 12px; border: 1px solid rgba(0,212,170,0.4); text-align: center; animation: scaleInUp 0.6s ease-out; animation-delay: 0.1s; animation-fill-mode: both;">
-          <div style="font-size: 48px; font-weight: 700; color: #4ade80; margin-bottom: 12px;">8x</div>
-          <div style="color: #f0f0ff; font-weight: 600; margin-bottom: 8px;">Faster Deployment</div>
-          <div style="color: #d0d0f0; font-size: 13px;">Automated infrastructure pipelines reduced deployment from 2
+        <div class="achievement-card theme-teal">
+          <div class="achievement-number color-teal">8x</div>
+          <div class="achievement-title">Faster Deployment</div>
+          <div class="achievement-desc">Automated infrastructure pipelines reduced deployment from 2
             hours to 15 minutes</div>
         </div>
 
-        <div
-          style="background: rgba(255,107,107,0.15); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,107,107,0.4); text-align: center; animation: scaleInUp 0.6s ease-out; animation-delay: 0.2s; animation-fill-mode: both;">
-          <div style="font-size: 48px; font-weight: 700; color: #ff9b9b; margin-bottom: 12px;">92%</div>
-          <div style="color: #f0f0ff; font-weight: 600; margin-bottom: 8px;">Entity Accuracy</div>
-          <div style="color: #d0d0f0; font-size: 13px;">NLP classification system achieving 92% accuracy on 10,000+
+        <div class="achievement-card theme-red">
+          <div class="achievement-number color-red">92%</div>
+          <div class="achievement-title">Entity Accuracy</div>
+          <div class="achievement-desc">NLP classification system achieving 92% accuracy on 10,000+
             enterprise documents</div>
         </div>
 
-        <div
-          style="background: rgba(255,193,7,0.15); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,193,7,0.4); text-align: center; animation: scaleInUp 0.6s ease-out; animation-delay: 0.3s; animation-fill-mode: both;">
-          <div style="font-size: 48px; font-weight: 700; color: #ffed4e; margin-bottom: 12px;">7+</div>
-          <div style="color: #f0f0ff; font-weight: 600; margin-bottom: 8px;">Tech Stacks Mastered</div>
-          <div style="color: #d0d0f0; font-size: 13px;">Full-stack capability spanning frontend, backend,
+        <div class="achievement-card theme-yellow">
+          <div class="achievement-number color-yellow">7+</div>
+          <div class="achievement-title">Tech Stacks Mastered</div>
+          <div class="achievement-desc">Full-stack capability spanning frontend, backend,
             infrastructure, and AI systems</div>
         </div>
 
-        <div
-          style="background: rgba(102,51,153,0.15); padding: 32px; border-radius: 12px; border: 1px solid rgba(102,51,153,0.4); text-align: center; animation: scaleInUp 0.6s ease-out; animation-delay: 0.4s; animation-fill-mode: both;">
-          <div style="font-size: 48px; font-weight: 700; color: #d9b3ff; margin-bottom: 12px;">&lt;200ms</div>
-          <div style="color: #f0f0ff; font-weight: 600; margin-bottom: 8px;">API Response Time</div>
-          <div style="color: #d0d0f0; font-size: 13px;">FastAPI production services optimized for sub-200ms latency on
+        <div class="achievement-card theme-purple">
+          <div class="achievement-number color-purple">&lt;200ms</div>
+          <div class="achievement-title">API Response Time</div>
+          <div class="achievement-desc">FastAPI production services optimized for sub-200ms latency on
             async operations</div>
         </div>
 
-        <div
-          style="background: rgba(0,188,212,0.15); padding: 32px; border-radius: 12px; border: 1px solid rgba(0,188,212,0.4); text-align: center; animation: scaleInUp 0.6s ease-out; animation-delay: 0.5s; animation-fill-mode: both;">
-          <div style="font-size: 48px; font-weight: 700; color: #4dd0e1; margin-bottom: 12px;">1</div>
-          <div style="color: #f0f0ff; font-weight: 600; margin-bottom: 8px;">Full AI Product Shipped</div>
-          <div style="color: #d0d0f0; font-size: 13px;">End-to-end delivery from data infrastructure to user-facing AI
+        <div class="achievement-card theme-cyan">
+          <div class="achievement-number color-cyan">1</div>
+          <div class="achievement-title">Full AI Product Shipped</div>
+          <div class="achievement-desc">End-to-end delivery from data infrastructure to user-facing AI
             product interface</div>
         </div>
 
@@ -633,13 +590,13 @@
       </div>
       <div class="skill-card">
         <div class="skill-icon">🏗️</div>
-        <h4>Infrastructure & DevOps</h4>
+        <h4>Infrastructure &amp; DevOps</h4>
         <p>Docker containerization, MinIO object storage, Bash scripting, Linux/Windows systems — building scalable,
           reliable infrastructure.</p>
       </div>
       <div class="skill-card">
         <div class="skill-icon">💾</div>
-        <h4>Databases & Storage</h4>
+        <h4>Databases &amp; Storage</h4>
         <p>MongoDB, Redis, MinIO, and Neo4j — designing and optimizing data persistence across microservices and graph
           structures.</p>
       </div>
@@ -663,11 +620,11 @@
     <div class="section-label">About me</div>
     <div class="about-grid">
       <div class="about-text">
-        <h2>Builder at the edge of design & engineering</h2>
+        <h2>Builder at the edge of design &amp; engineering</h2>
         <p>I'm an IT graduate currently pursuing a Master's in Software Engineering at FPT University. I build at the
           intersection of product thinking, UX, and engineering — comfortable working across the full stack but always
           focused on how users experience the final interface.</p>
-        <p>After interning at LARION as a Developer (an innovative IT solutions & outsourcing provider), I spent the
+        <p>After interning at LARION as a Developer (an innovative IT solutions &amp; outsourcing provider), I spent the
           last year building my own AI product end-to-end — from data pipelines and infrastructure to user-facing UI —
           using modern AI tools to move fast without sacrificing quality.</p>
         <p>I'm excited about AI-native products and scalable infrastructure where the challenge is making complex,

@@ -6,51 +6,17 @@ function setupScrollIndicator() {
   indicator.className = 'scroll-progress-bar';
   document.body.appendChild(indicator);
   
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (window.scrollY / scrollHeight) * 100;
-    indicator.style.width = scrolled + '%';
-  });
-}
-
-// ==========================================
-// PARALLAX HERO EFFECT
-// ==========================================
-function setupParallax() {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-  
-  window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    hero.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-  });
-}
-
-// ==========================================
-// TYPING ANIMATION FOR HERO TITLE
-// ==========================================
-function setupTypingAnimation() {
-  const heroTitle = document.querySelector('.hero h1');
-  if (!heroTitle) return;
-  
-  const originalText = heroTitle.innerHTML;
-  heroTitle.innerHTML = '';
-  
-  const fullText = 'Building <em>AI-native</em><br>product experiences';
-  let index = 0;
-  const speed = 50;
-  
-  function type() {
-    if (index < fullText.length) {
-      heroTitle.innerHTML = fullText.substring(0, index + 1);
-      index++;
-      setTimeout(type, speed);
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (window.scrollY / scrollHeight) * 100;
+        indicator.style.width = scrolled + '%';
+        ticking = false;
+      });
+      ticking = true;
     }
-  }
-  
-  // Start typing after page load
-  window.addEventListener('load', () => {
-    setTimeout(type, 300);
   });
 }
 
@@ -64,7 +30,9 @@ function animateCounter(element, target, duration = 2000) {
   function update() {
     const elapsed = Date.now() - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const current = Math.floor(start + (target - start) * progress);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(start + (target - start) * eased);
     element.textContent = current + '+';
     
     if (progress < 1) {
@@ -84,7 +52,9 @@ function setupCounterAnimation() {
     entries.forEach(entry => {
       if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
         const num = parseInt(entry.target.textContent);
-        animateCounter(entry.target, num);
+        if (!isNaN(num)) {
+          animateCounter(entry.target, num);
+        }
         entry.target.classList.add('counted');
       }
     });
@@ -106,7 +76,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       const target = document.querySelector(href);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        updateActiveNav();
+        // Close mobile menu if open
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        if (navLinks) navLinks.classList.remove('mobile-open');
+        if (hamburger) {
+          hamburger.classList.remove('active');
+          hamburger.innerHTML = '☰';
+        }
       }
     }
   });
@@ -132,7 +109,16 @@ function updateActiveNav() {
   });
 }
 
-window.addEventListener('scroll', updateActiveNav);
+let navTicking = false;
+window.addEventListener('scroll', () => {
+  if (!navTicking) {
+    requestAnimationFrame(() => {
+      updateActiveNav();
+      navTicking = false;
+    });
+    navTicking = true;
+  }
+});
 
 // ==========================================
 // MOBILE MENU TOGGLE
@@ -149,14 +135,16 @@ function setupMobileMenu() {
     nav.appendChild(hamburger);
     
     hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('mobile-open');
+      const isOpen = navLinks.classList.toggle('mobile-open');
       hamburger.classList.toggle('active');
+      hamburger.innerHTML = isOpen ? '✕' : '☰';
     });
     
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('mobile-open');
         hamburger.classList.remove('active');
+        hamburger.innerHTML = '☰';
       });
     });
   }
@@ -165,67 +153,48 @@ function setupMobileMenu() {
 document.addEventListener('DOMContentLoaded', setupMobileMenu);
 
 // ==========================================
-// SCROLL ANIMATIONS (Fade-in)
+// SCROLL ANIMATIONS (Intersection Observer)
 // ==========================================
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
-};
+function setupScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -60px 0px'
+  };
 
-const observer = new IntersectionObserver(function(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('fade-in-visible');
-    }
-  });
-}, observerOptions);
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in-visible');
+        // Add stagger delay for grid children
+        const parent = entry.target.parentElement;
+        if (parent) {
+          const siblings = Array.from(parent.children);
+          const index = siblings.indexOf(entry.target);
+          entry.target.style.transitionDelay = `${index * 0.08}s`;
+        }
+      }
+    });
+  }, observerOptions);
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('section, .project-card, .tool-item, .skill-card, .about-stat').forEach(el => {
-    el.classList.add('fade-in');
-    observer.observe(el);
-  });
-});
+  // Apply to cards and items, NOT entire sections
+  const targets = [
+    '.project-card',
+    '.tool-item',
+    '.skill-card',
+    '.about-stat',
+    '.timeline-card',
+    '.tech-card',
+    '.achievement-card',
+    '.mini-project'
+  ];
 
-// ==========================================
-// STAGGER ANIMATIONS FOR CARDS
-// ==========================================
-function setupStaggerAnimations() {
-  const projectCards = document.querySelectorAll('.project-card');
-  const skillCards = document.querySelectorAll('.skill-card');
-  
-  projectCards.forEach((card, index) => {
-    card.style.animationDelay = `${index * 0.1}s`;
-  });
-  
-  skillCards.forEach((card, index) => {
-    card.style.animationDelay = `${index * 0.05}s`;
-  });
-}
-
-document.addEventListener('DOMContentLoaded', setupStaggerAnimations);
-
-// ==========================================
-// ENHANCED HOVER EFFECTS FOR CARDS
-// ==========================================
-function setupCardHovers() {
-  const projectCards = document.querySelectorAll('.project-card');
-  const skillCards = document.querySelectorAll('.skill-card');
-  
-  [projectCards, skillCards].forEach(cards => {
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-8px) scale(1.01)';
-      });
-      
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
-      });
+  targets.forEach(selector => {
+    document.querySelectorAll(selector).forEach(el => {
+      el.classList.add('fade-in');
+      observer.observe(el);
     });
   });
 }
-
-document.addEventListener('DOMContentLoaded', setupCardHovers);
 
 // ==========================================
 // FORM VALIDATION (Email)
@@ -258,11 +227,18 @@ function setupScrollToTop() {
   scrollBtn.setAttribute('aria-label', 'Scroll to top');
   document.body.appendChild(scrollBtn);
   
+  let scrollTopTicking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      scrollBtn.classList.add('visible');
-    } else {
-      scrollBtn.classList.remove('visible');
+    if (!scrollTopTicking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY > 500) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+        scrollTopTicking = false;
+      });
+      scrollTopTicking = true;
     }
   });
   
@@ -271,10 +247,8 @@ function setupScrollToTop() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', setupScrollToTop);
-
 // ==========================================
-// MOUSE TRACKING FOR HERO
+// MOUSE TRACKING FOR HERO (subtle)
 // ==========================================
 function setupMouseTracking() {
   const hero = document.querySelector('.hero');
@@ -292,8 +266,8 @@ function setupMouseTracking() {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
   setupScrollIndicator();
-  setupParallax();
-  setupTypingAnimation();
   setupCounterAnimation();
   setupMouseTracking();
+  setupScrollToTop();
+  setupScrollAnimations();
 });
